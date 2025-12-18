@@ -3,37 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registration Form</title>
+    <title>Advanced Registration Form</title>
 </head>
 <body>
 
-    <h2 style="text-align: center;">User Registration</h2>
+    <h2>Advanced User Registration</h2>
 
-    <form action="URL" method="POST" enctype="multipart/form-data">
+    <form action="#" method="POST" enctype="multipart/form-data">
+        <div>
+            <label for="full_name">Full Name:</label>
+            <input type="text" id="full_name" name="full_name" required autofocus>
+        </div> <br>
 
-            <label for="full-name">Full Name:</label> <br>
-            <input type="text" id="full-name" name="full-name" required> <br><br>
+        <div>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+        </div> <br>
 
-            <label for="email">Email:</label> <br>
-            <input type="email" id="email" name="email" required> <br><br>
+        <div>
+            <label for="dob">Date of Birth:</label>
+            <input type="date" id="dob" name="dob" required>
+        </div> <br>
 
-            <label for="dob">Date of Birth:</label> <br>
-            <input type="date" id="dob" name="dob" required> <br><br>
+        <div>
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" pattern="[0-9]{3}[0-9]{3}[0-9]{4}" placeholder="Example: 9908302210" required>
+        </div> <br>
 
-            <label for="phone">Phone Number:</label> <br>
-            <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" placeholder="e.g., 1234567890" required> <br><br>
+        <div>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" minlength="8" required>
+        </div> <br>
 
-            <label for="password">Password:</label> <br>
-            <input type="password" id="password" name="password" required> <br><br>
+        <div>
+            <label for="profile_picture">Choose Profile Picture:</label> <br>
+            <input type="file" id="profile_picture" name="profile_picture" accept="image/*">
+        </div> <br>
 
-            <label for="profile-picture">Choose Profile Picture:</label> <br>
-            <input type="file" id="profile-picture" name="profile-picture" accept="image/png, image/jpeg"> <br><br>
-        
-            <input type="checkbox" id="terms" name="terms" required>
-            <label for="terms" style="display: inline; font-weight: normal;">I accept the Terms & Conditions</label> <br><br>
+        <div>
+            <label>
+                <input type="checkbox" name="terms" required>
+                I accept the Terms & Conditions
+            </label>
+        </div> <br>
 
-            <button type="submit">Register</button>
-            
+        <button type="submit">Register</button>
     </form>
+
 </body>
 </html>
