@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>University Portal - Home</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="register.html">Register</a></li>
+                <li><a href="#" id="logoutLink">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="homePage">
+            <div class="container">
+                <h1>Welcome to the VIT-AP University Portal!</h1>
+                <!-- <p id="Instructions">Please use the navigation bar above to access the Login or Registration pages.</p> -->
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 VIT-AP University Portal | All Rights Reserved</p>
+    </footer>
+
+    <script>
+        document.getElementById('logoutLink').addEventListener('click', (e) => {
+            e.preventDefault();
+            alert('You have been logged out.');
+        });
+    </script>
+</body>
+</html>

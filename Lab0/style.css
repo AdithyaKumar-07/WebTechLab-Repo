@@ -1,0 +1,149 @@
+/* Basic Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f4f4f9;
+    color: #333;
+    line-height: 1.6;
+}
+
+header {
+    background: #004c99; /* University Blue */
+    color: #fff;
+    padding: 1rem 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+nav ul {
+    list-style: none;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    transition: background-color 0.3s;
+}
+
+nav ul li a:hover {
+    background-color: #003366; /* Darker Blue */
+    border-radius: 5px;
+}
+
+main {
+    padding: 20px;
+    min-height: 75vh;
+}
+
+.container {
+    max-width: 800px;
+    margin: auto;
+    background: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+h1, h2 {
+    color: #004c99;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Form Styling */
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.form-actions {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.form-actions button {
+    padding: 10px 20px;
+    margin: 0 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.form-actions button[type="submit"] {
+    background-color: #28a745; /* Green */
+    color: white;
+}
+
+.form-actions button[type="submit"]:hover {
+    background-color: #1e7e34;
+}
+
+.form-actions button[type="reset"] {
+    background-color: #ffc107; /* Yellow/Orange */
+    color: #333;
+}
+
+.form-actions button[type="reset"]:hover {
+    background-color: #e0a800;
+}
+
+.form-actions button#backBtn {
+    background-color: #6c757d; /* Gray */
+    color: white;
+}
+
+.form-actions button#backBtn:hover {
+    background-color: #5a6268;
+}
+
+/* Validation Styling */
+.error-message {
+    color: #dc3545; /* Red */
+    font-size: 0.9em;
+    display: block; /* Ensures it takes up its own line */
+    margin-top: 5px;
+}
+
+/* Utility Class for JS */
+.hidden {
+    display: none !important;
+}
+
+/* Footer Styling */
+footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
