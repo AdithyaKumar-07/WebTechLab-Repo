@@ -1,0 +1,20 @@
+.form-group {
+  margin-bottom: 15px;
+}
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+.error-message {
+  color: red;
+  font-size: 0.8em;
+  display: none;
+}
+.invalid {
+  border: 1px solid red;
+}
+body {
+  font-family: sans-serif;
+  padding: 20px;
+}

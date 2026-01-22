@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Real-Time User Activity Monitor</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h2>User Activity Monitor</h2>
+
+      <div id="warning-box"></div>
+
+      <div id="interaction-area">
+        <h3>Interactive Zone</h3>
+        <p>Click around, type in the box, or tab through elements.</p>
+        <input type="text" id="test-input" placeholder="Type here..." />
+        <button id="test-button">Click Me</button>
+        <select id="test-select">
+          <option>Option 1</option>
+          <option>Option 2</option>
+        </select>
+      </div>
+
+      <div class="controls">
+        <button class="btn-export" onclick="exportLog()">
+          Download Log (.txt)
+        </button>
+        <button class="btn-reset" onclick="resetLog()">Clear All Data</button>
+      </div>
+
+      <h4>Live Activity Log (Newest First)</h4>
+      <div id="log-container"></div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

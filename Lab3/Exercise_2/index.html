@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Intelligent Shopping Cart</title>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Intelligent Cart</h2>
+      <div id="cart-list"></div>
+
+      <div class="coupon-box">
+        <input type="text" id="coupon-input" placeholder="Try code: SAVE20" />
+        <button class="btn-apply" onclick="handleCoupon()">Apply</button>
+      </div>
+
+      <div class="summary">
+        <div>Subtotal: <span id="subtotal">0.00/-</span></div>
+        <div class="discount-line">
+          Discounts: -<span id="discount-total">0.00/-</span>
+        </div>
+        <hr />
+        <div style="font-size: 1.2rem; font-weight: bold">
+          Total: <span id="final-total">0.00/-</span>
+        </div>
+      </div>
+      <p style="font-size: 0.8rem; color: #64748b; margin-top: 10px">
+        * Rules: 10% off over 500/- | 20% off Electronics (3+ items) | Happy
+        Hour 5/- off (2PM-4PM)
+      </p>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
