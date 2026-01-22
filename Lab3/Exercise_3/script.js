@@ -1,110 +1,102 @@
-const surveySchema = [
-    {
-        id: "name",
-        type: "text",
-        label: "Full Name",
-        required: true,
-        max: 50
-    },
-    {
-        id: "satisfaction",
-        type: "radio",
-        label: "Rate your experience (1-5)",
-        options: ["1", "2", "3", "4", "5"],
-        required: true
-    },
-    {
-        id: "features",
-        type: "checkbox",
-        label: "Which features did you use? (Select at least 2)",
-        options: ["Dashboard", "Reports", "Chat", "API"],
-        required: true,
-        minSelection: 2
-    }
+const surveyQuestions = [
+    { id: "q1", title: "Full Name", type: "text", required: true, maxLen: 50 },
+    { id: "q2", title: "Experience Level", type: "radio", options: ["Junior", "Mid", "Senior"], required: true },
+    { id: "q3", title: "Skills", type: "checkbox", options: ["HTML", "CSS", "JS"], required: true },
+    { id: "q4", title: "Feedback", type: "text", required: false, maxLen: 200 }
 ];
 
 function renderForm() {
-    const container = document.getElementById('formContainer');
-    
-    surveySchema.forEach(q => {
-        const qBlock = document.createElement('div');
-        qBlock.className = 'question-block';
-        qBlock.innerHTML = `<label>${q.label}${q.required ? ' *' : ''}</label>`;
+    const form = document.getElementById("dynamicSurvey");
+    surveyQuestions.forEach(q => {
+        const div = document.createElement("div");
+        div.className = "form-group";
         
-        if (q.type === 'text') {
-            const input = document.createElement('input');
-            input.type = 'text';
+        const label = document.createElement("label");
+        label.innerText = q.title + (q.required ? " *" : "");
+        div.appendChild(label);
+
+        if (q.type === "text") {
+            const input = document.createElement("input");
+            input.type = "text";
             input.name = q.id;
-            input.id = q.id;
-            if (q.max) input.maxLength = q.max;
-            qBlock.appendChild(input);
-        } else if (q.type === 'radio' || q.type === 'checkbox') {
-            q.options.forEach(opt => {
-                const label = document.createElement('label');
-                label.style.fontWeight = 'normal';
-                const input = document.createElement('input');
+            input.dataset.required = q.required;
+            input.dataset.maxLen = q.maxLen;
+            div.appendChild(input);
+        } else if (q.type === "radio" || q.type === "checkbox") {
+            q.options.forEach(option => {
+                const labelCheck = document.createElement("label");
+                const input = document.createElement("input");
                 input.type = q.type;
                 input.name = q.id;
-                input.value = opt;
-                label.appendChild(input);
-                label.appendChild(document.createTextNode(opt));
-                qBlock.appendChild(label);
+                input.value = option;
+                if(q.required) input.dataset.required = true;
+                
+                labelCheck.appendChild(input);
+                labelCheck.append(option);
+                labelCheck.style.fontWeight = "normal";
+                div.appendChild(labelCheck);
             });
         }
 
-        const errorSpan = document.createElement('span');
-        errorSpan.className = 'error';
-        errorSpan.id = `error-${q.id}`;
-        qBlock.appendChild(errorSpan);
+        const errorSpan = document.createElement("span");
+        errorSpan.className = "error-message";
+        errorSpan.id = `${q.id}-error`;
+        div.appendChild(errorSpan);
         
-        container.appendChild(qBlock);
+        form.appendChild(div);
     });
 }
 
-document.getElementById('dynamicSurveyForm').addEventListener('submit', function(e) {
-    e.preventDefault();
+function validateForm(event) {
+    event.preventDefault();
     let isValid = true;
-    
-    surveySchema.forEach(q => {
-        const errorEl = document.getElementById(`error-${q.id}`);
-        errorEl.style.display = 'none';
-        errorEl.innerText = '';
-        
-        if (q.type === 'text') {
-            const input = document.getElementById(q.id);
-            if (q.required && input.value.trim() === '') {
-                showError(errorEl, "This field is required.");
-                isValid = false;
-            } else if (q.max && input.value.length > q.max) {
-                showError(errorEl, `Maximum ${q.max} characters allowed.`);
-                isValid = false;
+    const form = event.target;
+
+    document.querySelectorAll(".error-message").forEach(span => {
+        span.style.display = "none";
+        span.innerText = "";
+    });
+    document.querySelectorAll(".invalid").forEach(el => el.classList.remove("invalid"));
+
+    surveyQuestions.forEach(q => {
+        const fieldGroup = document.querySelector(`[name="${q.id}"]`)?.parentElement;
+        const errorSpan = document.getElementById(`${q.id}-error`);
+        let fieldValid = true;
+        let errorMessage = "";
+
+        if (q.type === "text") {
+            const input = form.elements[q.id];
+            if (q.required && input.value.trim() === "") {
+                fieldValid = false;
+                errorMessage = "This field is required.";
+            } else if (input.value.length > q.maxLen) {
+                fieldValid = false;
+                errorMessage = `Max length is ${q.maxLen}.`;
             }
-        } else if (q.type === 'radio') {
-            const checked = document.querySelector(`input[name="${q.id}"]:checked`);
+        } else if (q.type === "radio") {
+            const checked = form.querySelector(`input[name="${q.id}"]:checked`);
             if (q.required && !checked) {
-                showError(errorEl, "Please select an option.");
-                isValid = false;
+                fieldValid = false;
+                errorMessage = "Please select an option.";
             }
-        } else if (q.type === 'checkbox') {
-            const checked = document.querySelectorAll(`input[name="${q.id}"]:checked`);
+        } else if (q.type === "checkbox") {
+            const checked = form.querySelectorAll(`input[name="${q.id}"]:checked`);
             if (q.required && checked.length === 0) {
-                showError(errorEl, "Please select at least one option.");
-                isValid = false;
-            } else if (q.minSelection && checked.length < q.minSelection) {
-                showError(errorEl, `Please select at least ${q.minSelection} options.`);
-                isValid = false;
+                fieldValid = false;
+                errorMessage = "Select at least one option.";
             }
         }
-    });
-    
-    if (isValid) {
-        alert("Form submitted successfully!");
-    }
-});
 
-function showError(el, message) {
-    el.innerText = message;
-    el.style.display = 'block';
+        if (!fieldValid) {
+            errorSpan.innerText = errorMessage;
+            errorSpan.style.display = "block";
+            errorSpan.style.color = "red";
+            isValid = false;
+        }
+    });
+
+    if (isValid) alert("Form submitted successfully!");
 }
 
 renderForm();
+document.getElementById("dynamicSurvey").addEventListener("submit", validateForm);
