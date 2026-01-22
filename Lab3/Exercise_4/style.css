@@ -1,0 +1,26 @@
+body { font-family: sans-serif; padding: 20px; background-color: #f4f4f9; }
+        .container { max-width: 800px; margin: 0 auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        
+        #interaction-area { 
+            padding: 30px; border: 2px dashed #3498db; border-radius: 8px; 
+            margin-bottom: 20px; text-align: center; background: #ebf5fb;
+        }
+
+        #warning-box { 
+            color: #721c24; background-color: #f8d7da; border: 1px solid #f5c6cb;
+            padding: 10px; margin-bottom: 15px; border-radius: 4px; display: none;
+        }
+
+        .controls { margin-bottom: 20px; display: flex; gap: 10px; }
+        button { cursor: pointer; padding: 10px 15px; border: none; border-radius: 4px; transition: 0.3s; }
+        .btn-export { background: #27ae60; color: white; }
+        .btn-reset { background: #e74c3c; color: white; }
+        button:hover { opacity: 0.8; }
+
+        #log-container { 
+            height: 300px; overflow-y: auto; border: 1px solid #ddd; 
+            background: #fafafa; padding: 10px; border-radius: 4px; font-family: monospace;
+        }
+        .log-entry { border-bottom: 1px solid #eee; padding: 5px 0; font-size: 0.9em; }
+        .capturing { color: #8e44ad; }
+        .bubbling { color: #2980b9; }
