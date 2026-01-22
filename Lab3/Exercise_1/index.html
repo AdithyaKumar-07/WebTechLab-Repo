@@ -8,42 +8,67 @@
   <body>
     <form id="registrationForm" novalidate>
       <div class="field">
-        <input type="text" id="name" required placeholder="Enter your Name"/>
+        <input type="text" id="name" required placeholder="Enter your Name" />
         <span class="error" id="nameError"></span>
-      </div><br>
+      </div>
+      <br />
 
       <div class="field">
-        <input type="email" id="email" required placeholder="Enter your Email Id"/>
+        <input
+          type="email"
+          id="email"
+          required
+          placeholder="Enter your Email Id"
+        />
         <span class="error" id="emailError"></span>
-      </div><br>
+      </div>
+      <br />
 
       <div class="field">
         <select id="role" name="role" placeholder="Select Role">
-          <option value=""disabled selected hidden>Select your role</option>
+          <option value="" disabled selected hidden>Select your role</option>
           <option value="Student">Student</option>
           <option value="Teacher">Teacher</option>
           <option value="Admin">Admin</option>
         </select>
-      </div><br>
+      </div>
+      <br />
 
       <div class="field" id="skillsContainer" style="display: none">
-        <input type="text" id="skills" placeholder="Enter your Skills(Comma seperated)"/>
+        <input
+          type="text"
+          id="skills"
+          placeholder="Enter your Skills(Comma seperated)"
+        />
         <span class="error" id="skillsError"></span>
-      </div><br>
+      </div>
+      <br />
 
       <div class="field">
-        <input type="number" id="age" placeholder="Enter your Age"/>
+        <input type="number" id="age" placeholder="Enter your Age" />
         <span class="error" id="ageError"></span>
-      </div><br>
+      </div>
+      <br />
 
       <div class="field">
-        <input type="password" id="password" required placeholder="Enter Password"/>
+        <input
+          type="password"
+          id="password"
+          required
+          placeholder="Enter Password"
+        />
         <small id="passHint">Standard: Min 6 characters</small>
         <span class="error" id="passwordError"></span>
-      </div><br>
+      </div>
+      <br />
 
       <div class="field">
-        <input type="password" id="confirmPassword" required placeholder="Confirm Password"/>
+        <input
+          type="password"
+          id="confirmPassword"
+          required
+          placeholder="Confirm Password"
+        />
         <span class="error" id="confirmError"></span>
       </div>
 
