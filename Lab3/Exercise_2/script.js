@@ -1,5 +1,4 @@
-    // 1. Data Array
-    let cart = [
+let cart = [
         { id: 1, name: "Laptop", price: 1200, quantity: 1, category: "Electronics" },
         { id: 2, name: "Mouse", price: 50, quantity: 2, category: "Electronics" },
         { id: 3, name: "Journal", price: 15, quantity: 10, category: "Stationery" }
@@ -7,7 +6,6 @@
 
     let activeCouponDiscount = 0;
 
-    //Display
     function renderCart() {
         const cartList = document.getElementById('cart-list');
         cartList.innerHTML = '';
@@ -30,17 +28,13 @@
         calculateTotals();
     }
 
-    // Discounts Logic
     function calculateTotals() {
         let subtotal = cart.reduce((acc, item) => acc + (item.price * item.quantity), 0);
         let totalDiscount = 0;
 
-        // Rule A: Bulk Discount (10% off if subtotal > $500)
         if (subtotal > 500) {
             totalDiscount += subtotal * 0.10;
         }
-
-        // Rule B: Category-based (20% off Electronics if purchasing 3 or more electronics items)
         const electronics = cart.filter(i => i.category === "Electronics");
         const elecQty = electronics.reduce((acc, i) => acc + i.quantity, 0);
         if (elecQty >= 3) {
@@ -48,12 +42,13 @@
             totalDiscount += elecSubtotal * 0.20;
         }
 
-        // Rule C: Time-based (Happy Hour: Extra $5 off between 2 PM and 4 PM)
         const currentHour = new Date().getHours();
         if (currentHour >= 14 && currentHour <= 16) {
             totalDiscount += 5;
         }
+
         totalDiscount += activeCouponDiscount;
+
         document.getElementById('subtotal').innerText = `${subtotal.toFixed(2)}/-`;
         document.getElementById('discount-total').innerText = `${totalDiscount.toFixed(2)}/-`;
         document.getElementById('final-total').innerText = `${Math.max(0, subtotal - totalDiscount).toFixed(2)}/-`;
@@ -71,6 +66,7 @@
 
     function handleCoupon() {
         const input = document.getElementById('coupon-input').value.trim().toUpperCase();
+        
         if (input.startsWith("SAVE") && input.length === 6) {
             const amount = parseInt(input.slice(4));
             if (!isNaN(amount)) {
@@ -82,4 +78,5 @@
         }
         alert("Invalid coupon code. Try SAVE20");
     }
+
     renderCart();
