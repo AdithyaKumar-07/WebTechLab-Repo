@@ -1,0 +1,20 @@
+.product-item {
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+        }
+        .product-item:last-child {
+            border-bottom: none;
+        }
+        .product-item h4 {
+            margin: 0;
+        }
+        .product-item p {
+            margin: 5px 0;
+            color: #555;
+        }
+        #results-container {
+            border: 1px solid #ccc;
+            margin-top: 10px;
+            max-height: 400px;
+            overflow-y: auto;
+        }

@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "name": "Laptop",
+    "price": 100000.00,
+    "category": "Electronics"
+  },
+  {
+    "id": 2,
+    "name": "Smartphone",
+    "price": 25000.00,
+    "category": "Electronics"
+  },
+  {
+    "id": 3,
+    "name": "Television",
+    "price": 115000.00,
+    "category": "Appliances"
+  },
+  {
+    "id": 4,
+    "name": "Refridgerator",
+    "price": 165000.00,
+    "category": "Appliances"
+  },
+  {
+    "id": 5,
+    "name": "Dining Table",
+    "price": 15000.00,
+    "category": "Furniture"
+  }
+]

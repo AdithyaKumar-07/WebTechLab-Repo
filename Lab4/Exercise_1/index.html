@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Username Checker</title>
+    <style>
+        .error { color: red; }
+        .success { color: green; }
+        #loader { display: none; font-style: italic; color: blue; }
+    </style>
+</head>
+<body>
+    <h2>Register Account</h2>
+    <form id="regForm">
+        <label>Username:</label>
+        <input type="text" id="username" name="username" placeholder="Type a name..." required>
+        
+        <span id="loader">⏳ Checking...</span>
+        <div id="statusMsg"></div>
+
+        <br><br>
+        <button type="submit" id="submitBtn">Register</button>
+    </form>
+
+    <script src="script.js"></script>
+</body>
+</html>

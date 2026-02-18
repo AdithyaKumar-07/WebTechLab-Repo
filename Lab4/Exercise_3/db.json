@@ -1,0 +1,28 @@
+{
+  "students": [
+    {
+      "id": "1",
+      "name": "Adithya",
+      "department": "CSE",
+      "marks": 92
+    },
+    {
+      "id": "2",
+      "name": "Nikhitha",
+      "department": "Mathematics",
+      "marks": 95
+    },
+    {
+      "id": "3",
+      "name": "Gowri",
+      "department": "Law",
+      "marks": 92
+    },
+    {
+      "id": "4",
+      "name": "Nani",
+      "department": "Aerospace engineering",
+      "marks": 79
+    }
+  ]
+}
