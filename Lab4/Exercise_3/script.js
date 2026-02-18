@@ -48,7 +48,6 @@ async function fetchStudents() {
     }
 }
 
-// DELETE
 async function deleteStudent(id) {
     const response = await fetch(`${apiUrl}/${id}`, { method: 'DELETE' });
     if (response.ok) {
