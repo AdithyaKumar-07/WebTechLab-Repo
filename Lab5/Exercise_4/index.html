@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Product Inventory System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h2>Product Inventory Management</h2>
+
+    <div class="controls">
+        <input type="text" id="searchBar" placeholder="Search by category..." onkeyup="filterByCategory()">
+        <span id="totalValueDisplay">Total Inventory Value: $0</span>
+    </div>
+
+    <form id="productForm">
+        <input type="text" id="pName" placeholder="Product Name" required>
+        <input type="text" id="pCategory" placeholder="Category" required>
+        <input type="number" id="pPrice" placeholder="Price" min="1" step="0.01" required>
+        <input type="number" id="pStock" placeholder="Stock Qty" min="0" required>
+        <button type="submit">Add Product</button>
+    </form>
+
+    <table id="inventoryTable">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Product Name</th>
+                <th>Category</th>
+                <th>Price</th>
+                <th>Stock</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="inventoryBody"></tbody>
+    </table>
+
+    <script src="script.js"></script>
+</body>
+</html>
