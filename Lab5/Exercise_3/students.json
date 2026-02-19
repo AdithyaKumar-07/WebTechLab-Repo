@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "name": "Adithya",
+        "course": "Machine Learning",
+        "marks": 85
+    },
+    {
+        "id": 2,
+        "name": "Nikhitha",
+        "course": "Deep Learning",
+        "marks": 92
+    },
+    {
+        "id": 3,
+        "name": "Nani",
+        "course": "Mathematics",
+        "marks": 75
+    },
+    {
+        "id": 1,
+        "name": "Gowri",
+        "course": "Web Technologies",
+        "marks": 98
+    }
+]
