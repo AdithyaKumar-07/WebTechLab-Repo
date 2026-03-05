@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>📚 Online Book Finder</h1>
+        
+        <div class="controls">
+            <input type="text" id="searchInput" placeholder="Search by title...">
+            <button onclick="searchBooks()">Search</button>
+            <button class="secondary" onclick="fetchTopRated()">Top Rated</button>
+            <button class="secondary" onclick="loadMore(1)">Page 1</button>
+        </div>
+
+        <div id="results"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
