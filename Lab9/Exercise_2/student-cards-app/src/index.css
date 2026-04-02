@@ -1,0 +1,41 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 20px;
+}
+
+.app-container h1 {
+  text-align: center;
+  color: #333;
+}
+
+.card-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.student-card {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 250px;
+  text-align: left;
+  transition: transform 0.2s;
+}
+
+.student-card:hover {
+  transform: translateY(-5px);
+}
+
+.student-name {
+  color: #007bff;
+  margin-top: 0;
+}
+
+.student-card p {
+  margin: 5px 0;
+}
