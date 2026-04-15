@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="/style.css">
+    <title>User Manager</title>
+</head>
+<body>
+    <div class="container">
+        <h1>User Management</h1>
+        <p>Check the console for <strong>Middleware Logs</strong>.</p>
+        <button onclick="fetchUsers()">Load Users via API</button>
+        <div id="userList"></div>
+    </div>
+
+    <script>
+        async function fetchUsers() {
+            const res = await fetch('/api/users');
+            const data = await res.json();
+            document.getElementById('userList').innerHTML = 
+                data.map(u => `<p>ID: ${u.id} - ${u.name}</p>`).join('');
+        }
+    </script>
+</body>
+</html>
